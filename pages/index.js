@@ -1,7 +1,7 @@
-import AppContainer from "../constate/AppContainer";
+import Header from '../components/Header';
 
-const Home = () => (<AppContainer.Provider>
-    <div>App inside container</div>
-  </AppContainer.Provider>)
+const IndexPage = () => {
+  return <Header />
+}
 
-export default Home;
+export default IndexPage;

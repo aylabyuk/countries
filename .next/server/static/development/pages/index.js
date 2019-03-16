@@ -1305,41 +1305,45 @@ var _jsxFileName = "/home/orielabsin/personals/countries/pages/index.js";
 
 var IndexPage = function IndexPage(props) {
   var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_2__["useContext"])(_state_AppContainer__WEBPACK_IMPORTED_MODULE_8__["default"].Context),
-      change = _useContext.changeMapPosition;
+      changeMapPosition = _useContext.changeMapPosition;
 
   var continents = props.continents;
-  console.log(props);
+
+  var updateMap = function updateMap(continent) {
+    changeMapPosition(continent.bbox);
+  };
+
   return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_4___default.a, {
     component: "nav",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 19
     },
     __self: this
   }, continents.map(function (cont) {
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_7___default.a, {
       href: "/continent?name=".concat(cont.name),
+      key: cont.name,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 23
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_5___default.a, {
       button: true,
-      key: cont.name,
       onClick: function onClick() {
-        return change(cont.bbox);
+        return updateMap(cont);
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 24
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6___default.a, {
       primary: cont.name,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 25
       },
       __self: this
     })));
@@ -1392,6 +1396,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AppContainer = constate__WEBPACK_IMPORTED_MODULE_2___default()(function () {
+  // map rect location
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([[2.6138389710984824, 103.38134765625001], [21.555284406923192, 145.56884765625003]]),
       _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
       mapPosition = _useState2[0],
@@ -1399,11 +1404,29 @@ var AppContainer = constate__WEBPACK_IMPORTED_MODULE_2___default()(function () {
 
   var changeMapPosition = function changeMapPosition(bbox) {
     return setMapPosition([[bbox.north, bbox.east], [bbox.south, bbox.west]]);
+  }; // path
+
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([{
+    name: 'Continents',
+    path: '/'
+  }, {
+    name: 'Asia',
+    path: '/continent?name=Asia'
+  }]),
+      _useState4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState3, 2),
+      currentPath = _useState4[0],
+      setCurrentPath = _useState4[1];
+
+  var changePath = function changePath(path) {
+    return setCurrentPath(path);
   };
 
   return {
     mapPosition: mapPosition,
-    changeMapPosition: changeMapPosition
+    changeMapPosition: changeMapPosition,
+    currentPath: currentPath,
+    changePath: changePath
   };
 });
 /* harmony default export */ __webpack_exports__["default"] = (AppContainer);

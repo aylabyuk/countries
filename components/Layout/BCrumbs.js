@@ -1,7 +1,12 @@
 import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import Link from '@material-ui/core/Link';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import Link from 'next/link';
+import MaterialLink from '@material-ui/core/Link';
+
+import AppContainer from '../../state/AppContainer';
+import { useContext } from 'react';
 
 const styles = theme => ({
   bcrumb: {
@@ -9,17 +14,37 @@ const styles = theme => ({
   }
 })
 
+const renderLink = ({ name, path }) => {
+  return (
+    <Link href={path}>
+      <MaterialLink color="inherit" href="">
+        { name }
+      </MaterialLink>
+    </Link>
+  )
+}
+
+const renderText = ({name}) => {
+  return (
+    <Typography color="textPrimary">{name}</Typography>
+  )
+}
+
 const BCrumbs = ({ classes }) => {
+  const { currentPath } = useContext(AppContainer.Context);
+
   return (
     <div className={classes.bcrumb}>
-      <Breadcrumbs separator="›" arial-label="Breadcrumb">
-        <Link color="inherit" href="/">
-          Continents
-        </Link>
-        <Link color="inherit" href="/lab/about/">
-          Lab
-        </Link>
-        <Typography color="textPrimary">Breadcrumb</Typography>
+      <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} arial-label="Breadcrumb">
+        {
+          currentPath.map(({ name, path }, index) => {
+            if (index + 1 === currentPath.length) {
+              return renderText({ name })
+            } else {
+              return renderLink({ name, path })
+            }
+          })
+        }
       </Breadcrumbs>
     </div>
   )

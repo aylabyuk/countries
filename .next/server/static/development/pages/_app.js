@@ -167,7 +167,7 @@ var renderLink = function renderLink(_ref) {
     color: "inherit",
     href: "",
     onClick: function onClick() {
-      return backToRoot();
+      return name === 'Continents' && backToRoot();
     },
     __source: {
       fileName: _jsxFileName,

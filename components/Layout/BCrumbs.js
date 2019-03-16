@@ -19,7 +19,7 @@ const renderLink = ({ name, path }) => {
 
   return (
     <Link href={path}>
-      <MaterialLink color="inherit" href="" onClick={() => backToRoot()}>
+      <MaterialLink color="inherit" href="" onClick={() => name === 'Continents' && backToRoot()}>
         { name }
       </MaterialLink>
     </Link>

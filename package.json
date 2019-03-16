@@ -21,6 +21,7 @@
     "leaflet": "^1.4.0",
     "next": "^8.0.3",
     "react": "^16.8.4",
+    "react-country-flag": "^1.0.2",
     "react-dom": "^16.8.4",
     "react-jss": "^8.6.1",
     "react-leaflet": "^2.2.1"

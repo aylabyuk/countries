@@ -6,21 +6,24 @@ import LeafletMap from './LeafletMap';
 import RightDrawer from './RightDrawer';
 import SearchAppBar from './SearchAppBar';
 
-const drawerWidth = 240;
+const drawerWidth = 400;
 
 const styles = theme => ({
   root: {
     display: 'flex',
   },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-  },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
+    [theme.breakpoints.down('sm')]: {
+      width: '100vw',
+    },
   },
   drawerPaper: {
     width: drawerWidth,
+    [theme.breakpoints.down('sm')]: {
+      width: '100vw',
+    },
   },
   content: {
     flexGrow: 1,

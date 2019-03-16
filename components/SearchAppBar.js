@@ -73,7 +73,7 @@ const styles = theme => ({
 const SearchAppBar = (props) => {
   const { classes } = props;
   return (
-    <AppBar position="static" className={classes.appBar}>
+    <AppBar position="fixed" className={classes.appBar}>
       <Toolbar>
         <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
           <MenuIcon />

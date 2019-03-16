@@ -1,30 +1,46 @@
-import { withStyles } from '@material-ui/core/styles';
+import React from 'react';
 import PropTypes from 'prop-types';
-import Header from "./Header";
-import LeafletMap from './LeafletMap'
-import RightDrawer from "./RightDrawer";
+import { withStyles } from '@material-ui/core/styles';
+
+import LeafletMap from './LeafletMap';
+import RightDrawer from './RightDrawer';
+import SearchAppBar from './SearchAppBar';
+
+const drawerWidth = 240;
 
 const styles = theme => ({
   root: {
-    width: '100%'
+    display: 'flex',
   },
-  leafletMap: {
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
+  },
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+  },
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  content: {
     flexGrow: 1,
-    padding: theme.spacing.unit * 3,
   },
-})
+  toolbar: theme.mixins.toolbar,
+});
 
-const Layout = ({ children, classes }) => {
+const Layout = (props) => {
+  const { classes } = props;
+
   return (
     <div className={classes.root}>
-      <Header />
-      <RightDrawer />
-      <main className={classes.leafletMap}>
+      <SearchAppBar />
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
         <LeafletMap />
       </main>
-      {/* {children} */}
+      <RightDrawer {...props} />
     </div>
-  )
+  );
 }
 
 Layout.propTypes = {

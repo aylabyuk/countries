@@ -129,9 +129,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _material_ui_core_Link__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Link */ "@material-ui/core/Link");
 /* harmony import */ var _material_ui_core_Link__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _state_AppContainer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../state/AppContainer */ "./state/AppContainer.js");
-var _jsxFileName = "/home/orielabsin/personals/countries/components/Layout/BCrumbs.js";
-
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! next/router */ "./node_modules/next/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -152,28 +151,12 @@ var styles = function styles(theme) {
 var renderLink = function renderLink(_ref) {
   var name = _ref.name,
       path = _ref.path;
-
-  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_state_AppContainer__WEBPACK_IMPORTED_MODULE_7__["default"].Context),
-      backToRoot = _useContext.backToRoot;
-
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
     href: path,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21
-    },
-    __self: this
+    key: path
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_6___default.a, {
     color: "inherit",
-    href: "",
-    onClick: function onClick() {
-      return name === 'Continents' && backToRoot();
-    },
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 22
-    },
-    __self: this
+    href: ""
   }, name));
 };
 
@@ -181,59 +164,23 @@ var renderText = function renderText(_ref2) {
   var name = _ref2.name;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2___default.a, {
     color: "textPrimary",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 31
-    },
-    __self: this
+    key: name
   }, name);
 };
 
-var BCrumbs = function BCrumbs(_ref3) {
-  var classes = _ref3.classes;
-
-  var _useContext2 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_state_AppContainer__WEBPACK_IMPORTED_MODULE_7__["default"].Context),
-      currentPath = _useContext2.currentPath;
-
+var BCrumbs = Object(next_router__WEBPACK_IMPORTED_MODULE_7__["withRouter"])(function (_ref3) {
+  var router = _ref3.router,
+      classes = _ref3.classes;
+  console.log(router);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: classes.bcrumb,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 39
-    },
-    __self: this
+    className: classes.bcrumb
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_lab_Breadcrumbs__WEBPACK_IMPORTED_MODULE_1___default.a, {
     separator: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_NavigateNext__WEBPACK_IMPORTED_MODULE_4___default.a, {
-      fontSize: "small",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 40
-      },
-      __self: this
+      fontSize: "small"
     }),
-    "arial-label": "Breadcrumb",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 40
-    },
-    __self: this
-  }, currentPath.map(function (_ref4, index) {
-    var name = _ref4.name,
-        path = _ref4.path;
-
-    if (index + 1 === currentPath.length) {
-      return renderText({
-        name: name
-      });
-    } else {
-      return renderLink({
-        name: name,
-        path: path
-      });
-    }
-  })));
-};
-
+    "arial-label": "Breadcrumb"
+  }));
+});
 /* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["withStyles"])(styles)(BCrumbs));
 
 /***/ }),
@@ -2558,42 +2505,21 @@ __webpack_require__.r(__webpack_exports__);
 
 var AppContainer = constate__WEBPACK_IMPORTED_MODULE_2___default()(function (router) {
   // defaults
-  var position = [[2.6138389710984824, 103.38134765625001], [21.555284406923192, 145.56884765625003]];
-  var rootPath = [{
-    name: 'Continents',
-    path: '/'
-  }]; // map rect location
+  var position = [[2.6138389710984824, 103.38134765625001], [21.555284406923192, 145.56884765625003]]; // map rect location
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(position),
       _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
       mapPosition = _useState2[0],
-      setMapPosition = _useState2[1]; // path
+      setMapPosition = _useState2[1];
 
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(rootPath),
-      _useState4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState3, 2),
-      currentPath = _useState4[0],
-      setCurrentPath = _useState4[1];
-
-  var changeContinent = function changeContinent(_ref) {
-    var bbox = _ref.bbox,
-        name = _ref.name;
+  var changeMapPosition = function changeMapPosition(_ref) {
+    var bbox = _ref.bbox;
     setMapPosition([[bbox.north, bbox.east], [bbox.south, bbox.west]]);
-    setCurrentPath([currentPath[0], {
-      name: name,
-      path: "continent?name=".concat(name)
-    }]);
-  };
-
-  var backToRoot = function backToRoot() {
-    setCurrentPath(rootPath);
   };
 
   return {
     mapPosition: mapPosition,
-    currentPath: currentPath,
-    changeContinent: changeContinent,
-    backToRoot: backToRoot
+    changeMapPosition: changeMapPosition
   };
 });
 /* harmony default export */ __webpack_exports__["default"] = (Object(next_router__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(AppContainer));

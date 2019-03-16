@@ -8,7 +8,7 @@ import Link from 'next/link';
 import AppContainer from '../state/AppContainer';
 
 const IndexPage = (props) => {
-  const { changeContinent } = useContext(AppContainer.Context);
+  const { changeMapPosition } = useContext(AppContainer.Context);
   const { continents } = props;
 
   return (
@@ -16,8 +16,8 @@ const IndexPage = (props) => {
       {
         continents.map((cont) => {
           return (
-            <Link href={`/continent?name=${cont.name}`} key={cont.name}>
-              <ListItem button onClick={() => changeContinent(cont)}>
+            <Link key={cont.name} as={`/${cont.name}`} href={`/?continent=${cont.name}`}>
+              <ListItem button onClick={() => changeMapPosition(cont)}>
                 <ListItemText primary={cont.name} />
               </ListItem>
             </Link>

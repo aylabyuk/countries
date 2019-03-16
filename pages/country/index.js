@@ -3,17 +3,17 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
-  continentName: {
+  countryName: {
     padding: theme.spacing.unit * 3,
     fontWeight: 300,
     fontSize: 45
   }
 })
 
-const Continent = withRouter(({ router, classes }) => {
+const Country = withRouter(({ router, classes }) => {
     return (
-      <Typography className={classes.continentName} color="textPrimary">{router.query.continent}</Typography>
+      <Typography className={classes.countryName} color="textPrimary">{router.query.country}</Typography>
     )
   })
 
-export default withStyles(styles)(Continent);
+export default withStyles(styles)(Country);

@@ -1,4 +1,5 @@
 import Drawer from '@material-ui/core/Drawer';
+import BCrumbs from './BCrumbs';
 
 const RightDrawer = ({classes, children}) => {
   return (
@@ -11,6 +12,7 @@ const RightDrawer = ({classes, children}) => {
         }}
       >
       <div className={classes.toolbar} />
+      <BCrumbs />
       { children }
     </Drawer>
   )

@@ -106,6 +106,87 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./components/Layout/BCrumbs.js":
+/*!**************************************!*\
+  !*** ./components/Layout/BCrumbs.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_lab_Breadcrumbs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/lab/Breadcrumbs */ "@material-ui/lab/Breadcrumbs");
+/* harmony import */ var _material_ui_lab_Breadcrumbs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_lab_Breadcrumbs__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_Link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Link */ "@material-ui/core/Link");
+/* harmony import */ var _material_ui_core_Link__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_4__);
+var _jsxFileName = "/home/orielabsin/personals/countries/components/Layout/BCrumbs.js";
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    bcrumb: {
+      padding: "".concat(theme.spacing.unit, "px ").concat(theme.spacing.unit * 2, "px")
+    }
+  };
+};
+
+var BCrumbs = function BCrumbs(_ref) {
+  var classes = _ref.classes;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.bcrumb,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_lab_Breadcrumbs__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    separator: "\u203A",
+    "arial-label": "Breadcrumb",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    color: "inherit",
+    href: "/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: this
+  }, "Continents"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    color: "inherit",
+    href: "/lab/about/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    },
+    __self: this
+  }, "Lab"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    color: "textPrimary",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    },
+    __self: this
+  }, "Breadcrumb")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["withStyles"])(styles)(BCrumbs));
+
+/***/ }),
+
 /***/ "./components/Layout/LeafletMap.js":
 /*!*****************************************!*\
   !*** ./components/Layout/LeafletMap.js ***!
@@ -153,8 +234,7 @@ var LeafletMap = function LeafletMap() {
       mapPosition = _useContext.mapPosition;
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Map, {
-    center: [mapPosition.lat, mapPosition.lng],
-    zoom: 13,
+    bounds: mapPosition,
     style: {
       height: 'calc(100vh - 64px)'
     },
@@ -169,7 +249,7 @@ var LeafletMap = function LeafletMap() {
     url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 24
     },
     __self: this
   }));
@@ -192,7 +272,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/Drawer */ "@material-ui/core/Drawer");
 /* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _BCrumbs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./BCrumbs */ "./components/Layout/BCrumbs.js");
 var _jsxFileName = "/home/orielabsin/personals/countries/components/Layout/RightDrawer.js";
+
 
 
 
@@ -208,14 +290,20 @@ var RightDrawer = function RightDrawer(_ref) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 6
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: classes.toolbar,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 14
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_BCrumbs__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
     },
     __self: this
   }), children);
@@ -2143,21 +2231,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AppContainer = constate__WEBPACK_IMPORTED_MODULE_2___default()(function () {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({
-    lat: 51.505,
-    lng: -0.09
-  }),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([[2.6138389710984824, 103.38134765625001], [21.555284406923192, 145.56884765625003]]),
       _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
       mapPosition = _useState2[0],
       setMapPosition = _useState2[1];
 
-  var changeMapPosition = function changeMapPosition(_ref) {
-    var lat = _ref.lat,
-        lng = _ref.lng;
-    return setMapPosition({
-      lat: lat,
-      lng: lng
-    });
+  var changeMapPosition = function changeMapPosition(bbox) {
+    return setMapPosition([[bbox.north, bbox.east], [bbox.south, bbox.west]]);
   };
 
   return {
@@ -2313,6 +2393,17 @@ module.exports = require("@material-ui/core/InputBase");
 
 /***/ }),
 
+/***/ "@material-ui/core/Link":
+/*!*****************************************!*\
+  !*** external "@material-ui/core/Link" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/Link");
+
+/***/ }),
+
 /***/ "@material-ui/core/Toolbar":
 /*!********************************************!*\
   !*** external "@material-ui/core/Toolbar" ***!
@@ -2398,6 +2489,17 @@ module.exports = require("@material-ui/icons/Menu");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/icons/Search");
+
+/***/ }),
+
+/***/ "@material-ui/lab/Breadcrumbs":
+/*!***********************************************!*\
+  !*** external "@material-ui/lab/Breadcrumbs" ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/lab/Breadcrumbs");
 
 /***/ }),
 

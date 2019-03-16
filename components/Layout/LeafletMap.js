@@ -17,8 +17,7 @@ const LeafletMap = () => {
 
   return (
     <Map
-      center={[mapPosition.lat, mapPosition.lng]}
-      zoom={13}
+      bounds={mapPosition}
       style={{ height: 'calc(100vh - 64px)' }}
       animate={true}
     >

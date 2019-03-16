@@ -6,7 +6,7 @@ module.exports = {
   // get all continents
   getContinents: async () => {
     return new Promise((resolve, reject) => {
-      geonames.search({ q: 'CONT', fcodeName: 'continent' })
+      geonames.search({ q: 'CONT', inclBbox: true })
         .then(res => {
           const continents = res.geonames.filter((item) => item.fcode === 'CONT')
           resolve({continents})

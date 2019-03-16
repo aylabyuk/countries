@@ -1,6 +1,7 @@
 import { withRouter } from 'next/router'
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import CountryList from '../../../components/CountryList';
 
 const styles = theme => ({
   countryName: {
@@ -12,7 +13,9 @@ const styles = theme => ({
 
 const Country = withRouter(({ router, classes }) => {
     return (
+      <>
       <Typography className={classes.countryName} color="textPrimary">{router.query.country}</Typography>
+      </>
     )
   })
 

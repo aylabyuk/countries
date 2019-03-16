@@ -1,5 +1,4 @@
 import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
-import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import Link from 'next/link';
@@ -42,7 +41,7 @@ const BCrumbs = withRouter(({ router, classes }) => {
         {
           router.query.country && renderLink({
             name: router.query.country,
-            path: `/continent/country?name=${router.query.name}&${router.query.country}`
+            path: `/continent/country?name=${router.query.name}&country=${router.query.country}`
           })
         }
       </Breadcrumbs>

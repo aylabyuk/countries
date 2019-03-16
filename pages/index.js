@@ -30,7 +30,7 @@ const IndexPage = (props) => {
 
 IndexPage.getInitialProps = async () => {
   const continents = await geoUtils.getContinents();
-  return continents;
+  return { continents };
 }
 
 export default IndexPage;

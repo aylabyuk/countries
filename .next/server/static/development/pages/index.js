@@ -1360,7 +1360,9 @@ _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(f
 
         case 2:
           continents = _context.sent;
-          return _context.abrupt("return", continents);
+          return _context.abrupt("return", {
+            continents: continents
+          });
 
         case 4:
         case "end":
@@ -1459,9 +1461,7 @@ module.exports = {
                   var continents = res.geonames.filter(function (item) {
                     return item.fcode === 'CONT';
                   });
-                  resolve({
-                    continents: continents
-                  });
+                  resolve(continents);
                 }).catch(function (err) {
                   reject(err);
                 });
@@ -1481,9 +1481,40 @@ module.exports = {
 
     return getContinents;
   }(),
-  getTest: function getTest() {
-    return 'test';
-  }
+  // get countries per continent name
+  getCountriesByContinentName: function () {
+    var _getCountriesByContinentName = (0, _asyncToGenerator2.default)(
+    /*#__PURE__*/
+    _regenerator.default.mark(function _callee2(continentName) {
+      return _regenerator.default.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              return _context2.abrupt("return", new _promise.default(function (resolve, reject) {
+                geonames.countryInfo({}).then(function (countries) {
+                  var filtered = countries.geonames.filter(function (item) {
+                    return item.continentName === continentName;
+                  });
+                  resolve(filtered);
+                }).catch(function (err) {
+                  reject(err);
+                });
+              }));
+
+            case 1:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    function getCountriesByContinentName(_x) {
+      return _getCountriesByContinentName.apply(this, arguments);
+    }
+
+    return getCountriesByContinentName;
+  }()
 };
 
 /***/ }),

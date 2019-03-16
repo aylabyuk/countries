@@ -9,14 +9,26 @@ module.exports = {
       geonames.search({ q: 'CONT', inclBbox: true })
         .then(res => {
           const continents = res.geonames.filter((item) => item.fcode === 'CONT')
-          resolve({continents})
+          resolve(continents)
         })
         .catch(err => {
           reject(err)
         })
     })
   },
-  getTest: () => {
-    return 'test'
+  // get countries per continent name
+  getCountriesByContinentName: async (continentName) => {
+    return new Promise((resolve, reject) => {
+      geonames.countryInfo({})
+        .then(countries => {
+          const filtered = countries.geonames.filter((item) => {
+            return item.continentName === continentName;
+          })
+          resolve(filtered)
+        })
+        .catch(err => {
+          reject(err)
+        })
+    })
   }
 }

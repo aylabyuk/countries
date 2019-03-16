@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
 import LeafletMap from './LeafletMap';
+
 import RightDrawer from './RightDrawer';
 import SearchAppBar from './SearchAppBar';
 

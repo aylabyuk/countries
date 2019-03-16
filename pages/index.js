@@ -1,9 +1,13 @@
-import Layout from '../components/Layout';
+
+import Link from 'next/link';
 
 const IndexPage = () => {
-  return <Layout >
+  return <div >
       index page
-    </Layout>
+      <Link prefetch href="/about">
+        <a>About</a>
+      </Link>
+    </div>
 }
 
 export default IndexPage;

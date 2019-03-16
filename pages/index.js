@@ -16,7 +16,7 @@ const IndexPage = (props) => {
       {
         continents.map((cont) => {
           return (
-            <Link key={cont.name} as={`/${cont.name}`} href={`/?continent=${cont.name}`}>
+            <Link key={cont.name} href={`/continent?name=${cont.name}`}>
               <ListItem button onClick={() => changeMapPosition(cont)}>
                 <ListItemText primary={cont.name} />
               </ListItem>

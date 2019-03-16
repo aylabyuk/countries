@@ -25,6 +25,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Link__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! next/router */ "./node_modules/next/router.js");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_7__);
+var _jsxFileName = "/home/orielabsin/personals/countries/components/Layout/BCrumbs.js";
 
 
 
@@ -47,33 +48,58 @@ var renderLink = function renderLink(_ref) {
       path = _ref.path;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
     href: path,
-    key: path
+    key: path,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_6___default.a, {
     color: "inherit",
-    href: ""
+    href: "",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: this
   }, name));
 };
 
-var renderText = function renderText(_ref2) {
-  var name = _ref2.name;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    color: "textPrimary",
-    key: name
-  }, name);
-};
-
-var BCrumbs = Object(next_router__WEBPACK_IMPORTED_MODULE_7__["withRouter"])(function (_ref3) {
-  var router = _ref3.router,
-      classes = _ref3.classes;
-  console.log(router);
+var BCrumbs = Object(next_router__WEBPACK_IMPORTED_MODULE_7__["withRouter"])(function (_ref2) {
+  var router = _ref2.router,
+      classes = _ref2.classes;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: classes.bcrumb
+    className: classes.bcrumb,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_lab_Breadcrumbs__WEBPACK_IMPORTED_MODULE_1___default.a, {
     separator: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_NavigateNext__WEBPACK_IMPORTED_MODULE_4___default.a, {
-      fontSize: "small"
+      fontSize: "small",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28
+      },
+      __self: this
     }),
-    "arial-label": "Breadcrumb"
-  }));
+    "arial-label": "Breadcrumb",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28
+    },
+    __self: this
+  }, renderLink({
+    name: 'Home',
+    path: '/'
+  }), router.query.name && renderLink({
+    name: router.query.name,
+    path: "/continent?name=".concat(router.query.name)
+  }), router.query.country && renderLink({
+    name: router.query.country,
+    path: "/continent/country?name=".concat(router.query.name, "&").concat(router.query.country)
+  })));
 });
 /* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["withStyles"])(styles)(BCrumbs));
 

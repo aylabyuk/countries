@@ -23880,8 +23880,7 @@ var IndexPage = function IndexPage(props) {
   }, continents.map(function (cont) {
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_7___default.a, {
       key: cont.name,
-      as: "/".concat(cont.name),
-      href: "/?continent=".concat(cont.name),
+      href: "/continent?name=".concat(cont.name),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 19
@@ -24050,7 +24049,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 1:
+/***/ 4:
 /*!********************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2Fhome%2Forielabsin%2Fpersonals%2Fcountries%2Fpages%2Findex.js ***!
   \********************************************************************************************************************************/
@@ -24073,5 +24072,5 @@ module.exports = dll_55dc4e2ecf7824085104;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]));;
+},[[4,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=index.js.map

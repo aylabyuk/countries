@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1318,8 +1318,7 @@ var IndexPage = function IndexPage(props) {
   }, continents.map(function (cont) {
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_7___default.a, {
       key: cont.name,
-      as: "/".concat(cont.name),
-      href: "/?continent=".concat(cont.name),
+      href: "/continent?name=".concat(cont.name),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 19
@@ -1489,7 +1488,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 3:
+/***/ 6:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

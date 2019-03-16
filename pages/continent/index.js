@@ -12,7 +12,7 @@ const styles = theme => ({
 
 const Continent = withRouter(({ router, classes }) => {
     return (
-      <Typography className={classes.continentName} color="textPrimary">{router.query.continent}</Typography>
+      <Typography className={classes.continentName} color="textPrimary">{router.query.name}</Typography>
     )
   })
 

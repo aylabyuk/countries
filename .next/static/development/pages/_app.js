@@ -46,19 +46,26 @@ var styles = function styles(theme) {
 var renderLink = function renderLink(_ref) {
   var name = _ref.name,
       path = _ref.path;
+
+  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_state_AppContainer__WEBPACK_IMPORTED_MODULE_7__["default"].Context),
+      backToRoot = _useContext.backToRoot;
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
     href: path,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 21
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_6___default.a, {
     color: "inherit",
     href: "",
+    onClick: function onClick() {
+      return backToRoot();
+    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 22
     },
     __self: this
   }, name));
@@ -70,7 +77,7 @@ var renderText = function renderText(_ref2) {
     color: "textPrimary",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 31
     },
     __self: this
   }, name);
@@ -79,14 +86,14 @@ var renderText = function renderText(_ref2) {
 var BCrumbs = function BCrumbs(_ref3) {
   var classes = _ref3.classes;
 
-  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_state_AppContainer__WEBPACK_IMPORTED_MODULE_7__["default"].Context),
-      currentPath = _useContext.currentPath;
+  var _useContext2 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_state_AppContainer__WEBPACK_IMPORTED_MODULE_7__["default"].Context),
+      currentPath = _useContext2.currentPath;
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: classes.bcrumb,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 39
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_lab_Breadcrumbs__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -94,14 +101,14 @@ var BCrumbs = function BCrumbs(_ref3) {
       fontSize: "small",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 40
       },
       __self: this
     }),
     "arial-label": "Breadcrumb",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 40
     },
     __self: this
   }, currentPath.map(function (_ref4, index) {
@@ -32564,44 +32571,53 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var constate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! constate */ "./node_modules/constate/dist/constate.es.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ "./node_modules/next/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
-var AppContainer = Object(constate__WEBPACK_IMPORTED_MODULE_2__["default"])(function () {
-  // map rect location
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([[2.6138389710984824, 103.38134765625001], [21.555284406923192, 145.56884765625003]]),
-      _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
-      mapPosition = _useState2[0],
-      setMapPosition = _useState2[1];
 
-  var changeMapPosition = function changeMapPosition(bbox) {
-    return setMapPosition([[bbox.north, bbox.east], [bbox.south, bbox.west]]);
-  }; // path
-
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([{
+var AppContainer = Object(constate__WEBPACK_IMPORTED_MODULE_2__["default"])(function (router) {
+  // defaults
+  var position = [[2.6138389710984824, 103.38134765625001], [21.555284406923192, 145.56884765625003]];
+  var rootPath = [{
     name: 'Continents',
     path: '/'
-  }, {
-    name: 'Asia',
-    path: '/continent?name=Asia'
-  }]),
+  }]; // map rect location
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(position),
+      _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
+      mapPosition = _useState2[0],
+      setMapPosition = _useState2[1]; // path
+
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(rootPath),
       _useState4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState3, 2),
       currentPath = _useState4[0],
       setCurrentPath = _useState4[1];
 
-  var changePath = function changePath(path) {
-    return setCurrentPath(path);
+  var changeContinent = function changeContinent(_ref) {
+    var bbox = _ref.bbox,
+        name = _ref.name;
+    setMapPosition([[bbox.north, bbox.east], [bbox.south, bbox.west]]);
+    setCurrentPath([currentPath[0], {
+      name: name,
+      path: "continent?name=".concat(name)
+    }]);
+  };
+
+  var backToRoot = function backToRoot() {
+    setCurrentPath(rootPath);
   };
 
   return {
     mapPosition: mapPosition,
-    changeMapPosition: changeMapPosition,
     currentPath: currentPath,
-    changePath: changePath
+    changeContinent: changeContinent,
+    backToRoot: backToRoot
   };
 });
-/* harmony default export */ __webpack_exports__["default"] = (AppContainer);
+/* harmony default export */ __webpack_exports__["default"] = (Object(next_router__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(AppContainer));
 
 /***/ }),
 

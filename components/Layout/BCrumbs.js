@@ -15,9 +15,11 @@ const styles = theme => ({
 })
 
 const renderLink = ({ name, path }) => {
+  const { backToRoot } = useContext(AppContainer.Context);
+
   return (
     <Link href={path}>
-      <MaterialLink color="inherit" href="">
+      <MaterialLink color="inherit" href="" onClick={() => backToRoot()}>
         { name }
       </MaterialLink>
     </Link>

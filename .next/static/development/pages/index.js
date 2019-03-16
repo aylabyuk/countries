@@ -23867,19 +23867,14 @@ var _jsxFileName = "/home/orielabsin/personals/countries/pages/index.js";
 
 var IndexPage = function IndexPage(props) {
   var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_2__["useContext"])(_state_AppContainer__WEBPACK_IMPORTED_MODULE_8__["default"].Context),
-      changeMapPosition = _useContext.changeMapPosition;
+      changeContinent = _useContext.changeContinent;
 
   var continents = props.continents;
-
-  var updateMap = function updateMap(continent) {
-    changeMapPosition(continent.bbox);
-  };
-
   return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_4___default.a, {
     component: "nav",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 15
     },
     __self: this
   }, continents.map(function (cont) {
@@ -23888,24 +23883,24 @@ var IndexPage = function IndexPage(props) {
       key: cont.name,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 19
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_5___default.a, {
       button: true,
       onClick: function onClick() {
-        return updateMap(cont);
+        return changeContinent(cont);
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 20
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6___default.a, {
       primary: cont.name,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 21
       },
       __self: this
     })));
@@ -23953,44 +23948,53 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var constate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! constate */ "./node_modules/constate/dist/constate.es.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ "./node_modules/next/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
-var AppContainer = Object(constate__WEBPACK_IMPORTED_MODULE_2__["default"])(function () {
-  // map rect location
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([[2.6138389710984824, 103.38134765625001], [21.555284406923192, 145.56884765625003]]),
-      _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
-      mapPosition = _useState2[0],
-      setMapPosition = _useState2[1];
 
-  var changeMapPosition = function changeMapPosition(bbox) {
-    return setMapPosition([[bbox.north, bbox.east], [bbox.south, bbox.west]]);
-  }; // path
-
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([{
+var AppContainer = Object(constate__WEBPACK_IMPORTED_MODULE_2__["default"])(function (router) {
+  // defaults
+  var position = [[2.6138389710984824, 103.38134765625001], [21.555284406923192, 145.56884765625003]];
+  var rootPath = [{
     name: 'Continents',
     path: '/'
-  }, {
-    name: 'Asia',
-    path: '/continent?name=Asia'
-  }]),
+  }]; // map rect location
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(position),
+      _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
+      mapPosition = _useState2[0],
+      setMapPosition = _useState2[1]; // path
+
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(rootPath),
       _useState4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState3, 2),
       currentPath = _useState4[0],
       setCurrentPath = _useState4[1];
 
-  var changePath = function changePath(path) {
-    return setCurrentPath(path);
+  var changeContinent = function changeContinent(_ref) {
+    var bbox = _ref.bbox,
+        name = _ref.name;
+    setMapPosition([[bbox.north, bbox.east], [bbox.south, bbox.west]]);
+    setCurrentPath([currentPath[0], {
+      name: name,
+      path: "continent?name=".concat(name)
+    }]);
+  };
+
+  var backToRoot = function backToRoot() {
+    setCurrentPath(rootPath);
   };
 
   return {
     mapPosition: mapPosition,
-    changeMapPosition: changeMapPosition,
     currentPath: currentPath,
-    changePath: changePath
+    changeContinent: changeContinent,
+    backToRoot: backToRoot
   };
 });
-/* harmony default export */ __webpack_exports__["default"] = (AppContainer);
+/* harmony default export */ __webpack_exports__["default"] = (Object(next_router__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(AppContainer));
 
 /***/ }),
 

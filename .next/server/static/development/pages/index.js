@@ -3,6 +3,12 @@ module.exports =
 /******/ 	// The module cache
 /******/ 	var installedModules = require('../../../ssr-module-cache.js');
 /******/
+/******/ 	// object to store loaded chunks
+/******/ 	// "0" means "already loaded"
+/******/ 	var installedChunks = {
+/******/ 		"static/development/pages/index.js": 0
+/******/ 	};
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/
@@ -86,6 +92,13 @@ module.exports =
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
+/******/ 	// uncaught error handler for webpack runtime
+/******/ 	__webpack_require__.oe = function(err) {
+/******/ 		process.nextTick(function() {
+/******/ 			throw err; // catch this error by using import().catch()
+/******/ 		});
+/******/ 	};
+/******/
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 3);
@@ -141,8 +154,8 @@ var _jsxFileName = "/home/orielabsin/personals/countries/components/Header.js";
 
 var styles = function styles(theme) {
   return {
-    root: {
-      width: '100%'
+    appBar: {
+      zIndex: theme.zIndex.drawer + 1
     },
     grow: {
       flexGrow: 1
@@ -198,26 +211,20 @@ var styles = function styles(theme) {
   };
 };
 
-function SearchAppBar(props) {
+var SearchAppBar = function SearchAppBar(props) {
   var classes = props.classes;
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: classes.root,
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    position: "static",
+    className: classes.appBar,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 76
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    position: "static",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 77
-    },
-    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Toolbar__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78
+      lineNumber: 77
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -226,13 +233,13 @@ function SearchAppBar(props) {
     "aria-label": "Open drawer",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79
+      lineNumber: 78
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_icons_Menu__WEBPACK_IMPORTED_MODULE_10___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80
+      lineNumber: 79
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6___default.a, {
@@ -242,34 +249,34 @@ function SearchAppBar(props) {
     noWrap: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82
+      lineNumber: 81
     },
     __self: this
   }, "Countries"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: classes.grow,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85
+      lineNumber: 84
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: classes.search,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86
+      lineNumber: 85
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: classes.searchIcon,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87
+      lineNumber: 86
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_icons_Search__WEBPACK_IMPORTED_MODULE_11___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88
+      lineNumber: 87
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_InputBase__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -280,16 +287,242 @@ function SearchAppBar(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90
+      lineNumber: 89
     },
     __self: this
-  })))));
-}
+  }))));
+};
 
 SearchAppBar.propTypes = {
   classes: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_9__["withStyles"])(styles)(SearchAppBar));
+
+/***/ }),
+
+/***/ "./components/Layout.js":
+/*!******************************!*\
+  !*** ./components/Layout.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Header */ "./components/Header.js");
+/* harmony import */ var _LeafletMap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./LeafletMap */ "./components/LeafletMap.js");
+/* harmony import */ var _RightDrawer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./RightDrawer */ "./components/RightDrawer.js");
+var _jsxFileName = "/home/orielabsin/personals/countries/components/Layout.js";
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    root: {
+      width: '100%'
+    },
+    leafletMap: {
+      flexGrow: 1,
+      padding: theme.spacing.unit * 3
+    }
+  };
+};
+
+var Layout = function Layout(_ref) {
+  var children = _ref.children,
+      classes = _ref.classes;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.root,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RightDrawer__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
+    className: classes.leafletMap,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LeafletMap__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: this
+  })));
+};
+
+Layout.propTypes = {
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["withStyles"])(styles)(Layout));
+
+/***/ }),
+
+/***/ "./components/LeafletMap.js":
+/*!**********************************!*\
+  !*** ./components/LeafletMap.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_server_dynamic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next-server/dynamic */ "next-server/dynamic");
+/* harmony import */ var next_server_dynamic__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_server_dynamic__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/home/orielabsin/personals/countries/components/LeafletMap.js";
+
+
+var Map = next_server_dynamic__WEBPACK_IMPORTED_MODULE_1___default()(function () {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.t.bind(null, /*! react-leaflet/lib/Map */ "react-leaflet/lib/Map", 7));
+}, {
+  ssr: false,
+  loadableGenerated: {
+    webpack: function webpack() {
+      return [/*require.resolve*/(/*! react-leaflet/lib/Map */ "react-leaflet/lib/Map")];
+    },
+    modules: ['react-leaflet/lib/Map']
+  }
+});
+var TileLayer = next_server_dynamic__WEBPACK_IMPORTED_MODULE_1___default()(function () {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.t.bind(null, /*! react-leaflet/lib/TileLayer */ "react-leaflet/lib/TileLayer", 7));
+}, {
+  ssr: false,
+  loadableGenerated: {
+    webpack: function webpack() {
+      return [/*require.resolve*/(/*! react-leaflet/lib/TileLayer */ "react-leaflet/lib/TileLayer")];
+    },
+    modules: ['react-leaflet/lib/TileLayer']
+  }
+});
+
+var LeafletMap = function LeafletMap() {
+  var mypos = {
+    lat: 51.505,
+    lng: -0.09,
+    zoom: 13
+  };
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Map, {
+    center: [mypos.lat, mypos.lng],
+    zoom: mypos.zoom,
+    style: {
+      height: 'calc(100vh - 64px)'
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TileLayer, {
+    attribution: "&copy <a href=\"http://osm.org/copyright\">OpenStreetMap</a> contributors",
+    url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: this
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (LeafletMap);
+
+/***/ }),
+
+/***/ "./components/RightDrawer.js":
+/*!***********************************!*\
+  !*** ./components/RightDrawer.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Drawer */ "@material-ui/core/Drawer");
+/* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_3__);
+var _jsxFileName = "/home/orielabsin/personals/countries/components/RightDrawer.js";
+
+
+
+
+var drawerWidth = 240;
+
+var styles = function styles(theme) {
+  return {
+    drawer: {
+      width: drawerWidth,
+      flexShrink: 0
+    },
+    drawerPaper: {
+      width: drawerWidth
+    },
+    content: {
+      flexGrow: 1,
+      padding: theme.spacing.unit * 3
+    },
+    toolbar: theme.mixins.toolbar
+  };
+};
+
+var RightDrawer = function RightDrawer(props) {
+  var classes = props.classes;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    className: classes.drawer,
+    variant: "permanent",
+    anchor: "right",
+    classes: {
+      paper: classes.drawerPaper
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.toolbar,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35
+    },
+    __self: this
+  }));
+};
+
+RightDrawer.propTypes = {
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["withStyles"])(styles)(RightDrawer));
 
 /***/ }),
 
@@ -345,19 +578,19 @@ function _defineProperty(obj, key, value) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Header */ "./components/Header.js");
+/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
 var _jsxFileName = "/home/orielabsin/personals/countries/pages/index.js";
 
 
 
 var IndexPage = function IndexPage() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 4
     },
     __self: this
-  });
+  }, "index page");
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (IndexPage);
@@ -384,6 +617,17 @@ module.exports = __webpack_require__(/*! /home/orielabsin/personals/countries/pa
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/core/AppBar");
+
+/***/ }),
+
+/***/ "@material-ui/core/Drawer":
+/*!*******************************************!*\
+  !*** external "@material-ui/core/Drawer" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/Drawer");
 
 /***/ }),
 
@@ -486,6 +730,17 @@ module.exports = require("core-js/library/fn/object/define-property");
 
 /***/ }),
 
+/***/ "next-server/dynamic":
+/*!**************************************!*\
+  !*** external "next-server/dynamic" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next-server/dynamic");
+
+/***/ }),
+
 /***/ "prop-types":
 /*!*****************************!*\
   !*** external "prop-types" ***!
@@ -505,6 +760,28 @@ module.exports = require("prop-types");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-leaflet/lib/Map":
+/*!****************************************!*\
+  !*** external "react-leaflet/lib/Map" ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-leaflet/lib/Map");
+
+/***/ }),
+
+/***/ "react-leaflet/lib/TileLayer":
+/*!**********************************************!*\
+  !*** external "react-leaflet/lib/TileLayer" ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-leaflet/lib/TileLayer");
 
 /***/ })
 

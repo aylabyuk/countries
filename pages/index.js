@@ -1,7 +1,9 @@
-import Header from '../components/Header';
+import Layout from '../components/Layout';
 
 const IndexPage = () => {
-  return <Header />
+  return <Layout >
+      index page
+    </Layout>
 }
 
 export default IndexPage;

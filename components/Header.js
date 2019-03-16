@@ -11,8 +11,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 
 const styles = theme => ({
-  root: {
-    width: '100%',
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
   },
   grow: {
     flexGrow: 1,
@@ -70,34 +70,32 @@ const styles = theme => ({
   },
 });
 
-function SearchAppBar(props) {
+const SearchAppBar = (props) => {
   const { classes } = props;
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
-            <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-            Countries
-          </Typography>
-          <div className={classes.grow} />
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-            />
+    <AppBar position="static" className={classes.appBar}>
+      <Toolbar>
+        <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
+          <MenuIcon />
+        </IconButton>
+        <Typography className={classes.title} variant="h6" color="inherit" noWrap>
+          Countries
+        </Typography>
+        <div className={classes.grow} />
+        <div className={classes.search}>
+          <div className={classes.searchIcon}>
+            <SearchIcon />
           </div>
-        </Toolbar>
-      </AppBar>
-    </div>
+          <InputBase
+            placeholder="Search…"
+            classes={{
+              root: classes.inputRoot,
+              input: classes.inputInput,
+            }}
+          />
+        </div>
+      </Toolbar>
+    </AppBar>
   );
 }
 

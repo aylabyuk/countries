@@ -17,9 +17,11 @@
     "constate": "^1.0.0",
     "geonames.js": "^2.1.0",
     "jss": "^9.8.7",
+    "leaflet": "^1.4.0",
     "next": "^8.0.3",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-jss": "^8.6.1"
+    "react-jss": "^8.6.1",
+    "react-leaflet": "^2.2.1"
   }
 }

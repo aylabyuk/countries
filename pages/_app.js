@@ -4,8 +4,9 @@ import Head from 'next/head';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import JssProvider from 'react-jss/lib/JssProvider';
-import getPageContext from '../src/getPageContext';
+import getPageContext from '../utils/getPageContext';
 import Layout from '../components/Layout';
+import AppContainer from '../state/AppContainer';
 
 class MyApp extends App {
   constructor() {
@@ -51,9 +52,11 @@ class MyApp extends App {
             <CssBaseline />
             {/* Pass pageContext to the _document though the renderPage enhancer
                 to render collected styles on server-side. */}
-            <Layout>
-              <Component pageContext={this.pageContext} {...pageProps} />
-            </Layout>
+            <AppContainer.Provider>
+              <Layout>
+                <Component pageContext={this.pageContext} {...pageProps} />
+              </Layout>
+            </AppContainer.Provider>
           </MuiThemeProvider>
         </JssProvider>
       </Container>

@@ -1,4 +1,7 @@
+import { useContext } from 'react';
 import dynamic from 'next/dynamic';
+
+import AppContainer from '../../state/AppContainer';
 
 const Map = dynamic(() => import('react-leaflet/lib/Map'), {
   ssr: false
@@ -10,14 +13,15 @@ const TileLayer = dynamic(() => import('react-leaflet/lib/TileLayer'), {
 
 
 const LeafletMap = () => {
-  const mypos = {
-    lat: 51.505,
-    lng: -0.09,
-    zoom: 13,
-  }
+  const { mapPosition } = useContext(AppContainer.Context);
 
   return (
-    <Map center={[mypos.lat, mypos.lng]} zoom={mypos.zoom} style={{ height: 'calc(100vh - 64px)' }}>
+    <Map
+      center={[mapPosition.lat, mapPosition.lng]}
+      zoom={13}
+      style={{ height: 'calc(100vh - 64px)' }}
+      animate={true}
+    >
       <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

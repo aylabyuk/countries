@@ -8093,7 +8093,7 @@ var webpack_hot_middleware_client_1 = __importDefault(__webpack_require__(/*! ./
 // The runtimeChunk can't hot reload itself currently to correct it when adding pages using on-demand-entries
 
 
-__webpack_require__.e(/*! import() */ 0).then(__webpack_require__.t.bind(null, /*! ./noop */ "./node_modules/next/dist/client/noop.js", 7));
+__webpack_require__.e(/*! import() */ 2).then(__webpack_require__.t.bind(null, /*! ./noop */ "./node_modules/next/dist/client/noop.js", 7));
 var _window = window,
     assetPrefix = _window.__NEXT_DATA__.assetPrefix;
 var prefix = assetPrefix || '';

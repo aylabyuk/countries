@@ -11,7 +11,7 @@ const styles = theme => ({
 })
 
 const Country = ({ classes, location }) => {
-  const countryName = location.state ? location.state.country.name : location.pathname.split('/').pop();
+  const countryName = location.state ? location.state.country.countryName : location.pathname.split('/').pop();
 
   return (
     <>

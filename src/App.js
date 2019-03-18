@@ -10,6 +10,7 @@ import AppContainer from './appContainer';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Continent from './pages/Continent';
+import Country from './pages/Country';
 
 // A theme with custom primary and secondary color.
 const theme = createMuiTheme({
@@ -41,6 +42,7 @@ class App extends Component {
             <Router>
               <Route path="/" exact component={Home} />
               <Route path="/:continent" exact component={Continent} />
+              <Route path="/:continent/:country" exact component={Country} />
             </Router>
           </Layout>
         </AppContainer.Provider>

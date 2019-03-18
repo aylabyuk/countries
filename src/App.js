@@ -9,6 +9,7 @@ import 'typeface-roboto';
 import AppContainer from './appContainer';
 import Layout from './components/Layout';
 import Home from './pages/Home';
+import Continent from './pages/Continent';
 
 // A theme with custom primary and secondary color.
 const theme = createMuiTheme({
@@ -39,6 +40,7 @@ class App extends Component {
           <Layout>
             <Router>
               <Route path="/" exact component={Home} />
+              <Route path="/:continent" exact component={Continent} />
             </Router>
           </Layout>
         </AppContainer.Provider>

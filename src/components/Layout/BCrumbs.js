@@ -24,7 +24,7 @@ const BCrumbs = ({ router, classes }) => {
   return (
     <div className={classes.bcrumb}>
       <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} arial-label="Breadcrumb">
-        
+        <div>test</div>
       </Breadcrumbs>
     </div>
   )

@@ -5,12 +5,18 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import AppContainer from '../appContainer';
 import geoUtils from '../utils/geonamesUtils';
+import { Link } from 'react-router-dom';
 
-const IndexPage = () => {
+const Home = () => {
   const [ continents, setContinents ] = useState([]);
 
-  useEffect(async () => {
-    setContinents(await geoUtils.getContinents())
+  const fetchContinents = async () => {
+    const res = await geoUtils.getContinents();
+    setContinents(res);
+  }
+
+  useEffect(() => {
+    fetchContinents();
   }, [])
 
   const { changeMapPosition } = useContext(AppContainer.Context);
@@ -20,11 +26,11 @@ const IndexPage = () => {
       {
         continents.map((cont) => {
           return (
-            // <Link key={cont.name} href={`/continent?name=${cont.name}`}>
+            <Link key={cont.name} to={{ pathname: `/${cont.name}`, state: { continent: cont } }} >
               <ListItem button onClick={() => changeMapPosition(cont)}>
                 <ListItemText primary={cont.name} />
               </ListItem>
-            // </Link>
+            </Link>
           )
         })
       }
@@ -32,4 +38,4 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage;
+export default Home;

@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import createContainer from 'constate';
-import { withRouter } from 'next/router'
 
-const AppContainer = createContainer(( router ) => {
+const AppContainer = createContainer(() => {
   // defaults
   const position = [[2.6138389710984824, 103.38134765625001], [21.555284406923192, 145.56884765625003]];
 
@@ -19,4 +18,5 @@ const AppContainer = createContainer(( router ) => {
   };  
 });
 
-export default withRouter(AppContainer)
+export default AppContainer;
+

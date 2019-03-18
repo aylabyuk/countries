@@ -2,7 +2,7 @@ import Geonames from 'geonames.js';
 
 const geonames = new Geonames({username: 'thevinci', lan: 'en', encoding: 'JSON'});
 
-module.exports = {
+export default {
   // get all continents
   getContinents: async () => {
     return new Promise((resolve, reject) => {

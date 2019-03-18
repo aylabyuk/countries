@@ -1,16 +1,13 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Link from 'next/link';
 import ReactCountryFlag from "react-country-flag";
-
-import AppContainer from '../../state/AppContainer';
+import { Link } from 'react-router-dom';
+import AppContainer from '../appContainer';
 
 const CountryList = ({ countries }) => {
   const { changeMapPosition } = useContext(AppContainer.Context);
-
-  console.log(countries)
 
   return ( 
     <List component="nav">
@@ -25,7 +22,11 @@ const CountryList = ({ countries }) => {
           }
 
           return (
-            <Link key={country.countryName} href={`/continent/country?name=${country.continentName}&country=${country.countryName}`}>
+            <Link
+              key={country.countryName}
+              style={{ textDecoration: 'none' }}
+              to={{ pathname: `/${country.continentName}/${country.countryName}`, state: { country } }}
+            >
               <ListItem button onClick={() => changeMapPosition({ bbox })}>
                 <ReactCountryFlag code={country.countryCode} svg />
                 <ListItemText primary={country.countryName} />

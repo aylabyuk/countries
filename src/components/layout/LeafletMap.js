@@ -1,16 +1,9 @@
+import React from 'react';
 import { useContext } from 'react';
-import dynamic from 'next/dynamic';
+import Map from 'react-leaflet/lib/Map';
+import TileLayer from 'react-leaflet/lib/TileLayer';
 
-import AppContainer from '../../state/AppContainer';
-
-const Map = dynamic(() => import('react-leaflet/lib/Map'), {
-  ssr: false
-});
-
-const TileLayer = dynamic(() => import('react-leaflet/lib/TileLayer'), {
-  ssr: false
-});
-
+import AppContainer from '../../appContainer';
 
 const LeafletMap = () => {
   const { mapPosition } = useContext(AppContainer.Context);

@@ -1,6 +1,7 @@
+import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import BCrumbs from './BCrumbs';
-import Loading from '../Loading';
+// import Loading from '../Loading';
 
 const RightDrawer = ({classes, children}) => {
   return (

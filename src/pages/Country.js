@@ -11,9 +11,11 @@ const styles = theme => ({
 })
 
 const Country = ({ classes, location }) => {
+  console.log(location.state.country)
+  console.log(location)
   return (
     <>
-    <Typography className={classes.countryName} color="textPrimary">{location.state.country}</Typography>
+      <Typography className={classes.countryName} color="textPrimary">{location.state.country.countryName}</Typography>
     </>
   )
 } 

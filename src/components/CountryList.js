@@ -9,8 +9,6 @@ import AppContainer from '../appContainer';
 const CountryList = ({ countries }) => {
   const { changeMapPosition } = useContext(AppContainer.Context);
 
-  console.log(countries)
-
   return ( 
     <List component="nav">
       {
@@ -26,6 +24,7 @@ const CountryList = ({ countries }) => {
           return (
             <Link
               key={country.countryName}
+              style={{ textDecoration: 'none' }}
               to={{ pathname: `/${country.continentName}/${country.countryName}`, state: { country } }}
             >
               <ListItem button onClick={() => changeMapPosition({ bbox })}>

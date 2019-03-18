@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom"
 import 'typeface-roboto';
 
 import AppContainer from './appContainer';
-import Layout from './components/Layout';
+import Layout from './components/layout';
 import Home from './pages/Home';
 import Continent from './pages/Continent';
 import Country from './pages/Country';
@@ -38,13 +38,13 @@ class App extends Component {
     return (
       <MuiThemeProvider theme={theme}>
         <AppContainer.Provider>
+        <Router>
           <Layout>
-            <Router>
-              <Route path="/" exact component={Home} />
-              <Route path="/:continent" exact component={Continent} />
-              <Route path="/:continent/:country" exact component={Country} />
-            </Router>
+            <Route path="/" exact component={Home} />
+            <Route path="/:continent" exact component={Continent} />
+            <Route path="/:continent/:country" exact component={Country} />
           </Layout>
+          </Router>
         </AppContainer.Provider>
       </MuiThemeProvider>
     );

@@ -26,7 +26,11 @@ const Home = () => {
       {
         continents.map((cont) => {
           return (
-            <Link key={cont.name} to={{ pathname: `/${cont.name}`, state: { continent: cont } }} >
+            <Link
+              key={cont.name}
+              style={{ textDecoration: 'none' }}
+              to={{ pathname: `/${cont.name}`, state: { continent: cont } }}
+            >
               <ListItem button onClick={() => changeMapPosition(cont)}>
                 <ListItemText primary={cont.name} />
               </ListItem>

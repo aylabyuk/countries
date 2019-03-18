@@ -17,9 +17,12 @@ const renderLink = ({ item, index, loc }) => {
     text = 'Home'
   }
 
-  const path = loc.filter
+  const path = loc.filter((item, i) => {
+    return i <= index;
+  }).join('/')
+
   return (
-    <Link to='/' style={{ textDecoration: 'none' }}>
+    <Link to={path} style={{ textDecoration: 'none' }}>
       <Typography color="textPrimary">{text}</Typography>
     </Link>
   )

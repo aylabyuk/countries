@@ -13,6 +13,7 @@
     "react-country-flag": "^1.0.2",
     "react-dom": "^16.8.4",
     "react-leaflet": "^2.2.1",
+    "react-router-dom": "^4.4.0",
     "react-scripts": "2.1.8",
     "typeface-roboto": "0.0.54"
   },

@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import red from '@material-ui/core/colors/red';
 import green from '@material-ui/core/colors/green';
+import { BrowserRouter as Router, Route } from "react-router-dom"
 
 import 'typeface-roboto';
 
 import AppContainer from './appContainer';
 import Layout from './components/Layout';
-
+import Home from './pages/Home';
 
 // A theme with custom primary and secondary color.
 const theme = createMuiTheme({
@@ -36,7 +37,9 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <AppContainer.Provider>
           <Layout>
-            <div>test</div>
+            <Router>
+              <Route path="/" exact component={Home} />
+            </Router>
           </Layout>
         </AppContainer.Provider>
       </MuiThemeProvider>

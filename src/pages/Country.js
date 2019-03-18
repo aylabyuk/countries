@@ -11,11 +11,11 @@ const styles = theme => ({
 })
 
 const Country = ({ classes, location }) => {
-  console.log(location.state.country)
-  console.log(location)
+  const countryName = location.state ? location.state.country.name : location.pathname.split('/').pop();
+
   return (
     <>
-      <Typography className={classes.countryName} color="textPrimary">{location.state.country.countryName}</Typography>
+      <Typography className={classes.countryName} color="textPrimary">{countryName}</Typography>
     </>
   )
 } 

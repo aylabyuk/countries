@@ -15,7 +15,7 @@ const styles = theme => ({
 
 const Continent = ({ classes, location }) => {
   const [ countries, setCountries ] = useState([]);
-  const continentName = location.state.continent.name;
+  const continentName = location.state ? location.state.continent.name : location.pathname.split('/').pop();
 
   const fetchCountries = async () => {
     const res = await geoUtils.getCountriesByContinentName(continentName);
@@ -28,7 +28,7 @@ const Continent = ({ classes, location }) => {
 
   return (
     <>
-      <Typography className={classes.continentName} color="textPrimary">{location.state.continent.name}</Typography>
+      <Typography className={classes.continentName} color="textPrimary">{continentName}</Typography>
       <CountryList countries={countries}/>
     </>
   )

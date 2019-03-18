@@ -2,7 +2,7 @@ import React from 'react';
 import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
 import { withStyles } from '@material-ui/core/styles';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import MaterialLink from '@material-ui/core/Link';
+import Typography from '@material-ui/core/Typography';
 import { withRouter, Link } from 'react-router-dom';
 
 const styles = theme => ({
@@ -11,12 +11,16 @@ const styles = theme => ({
   },
 })
 
-const renderLink = ({ item, index }) => {
+const renderLink = ({ item, index, loc }) => {
+  let text = item;
+  if (index === 0) {
+    text = 'Home'
+  }
+
+  const path = loc.filter
   return (
-    <Link to='/' >
-      <MaterialLink color="inherit" href="">
-        {item}
-      </MaterialLink>
+    <Link to='/' style={{ textDecoration: 'none' }}>
+      <Typography color="textPrimary">{text}</Typography>
     </Link>
   )
 }
@@ -31,7 +35,7 @@ const BCrumbs = withRouter(({ location, classes }) => {
           loc.map((item, index) => {
             return (
               <div key={item}>
-                { renderLink({item, index}) }
+                { renderLink({item, index, loc}) }
               </div>
             )
           })

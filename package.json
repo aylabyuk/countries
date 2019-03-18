@@ -13,7 +13,7 @@
     "react-country-flag": "^1.0.2",
     "react-dom": "^16.8.4",
     "react-leaflet": "^2.2.1",
-    "react-router-dom": "^4.4.0",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
     "typeface-roboto": "0.0.54"
   },
@@ -21,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -31,5 +33,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "homepage": "http://aylabyuk.github.io/countries",
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
 }

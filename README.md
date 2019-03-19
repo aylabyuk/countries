@@ -1,5 +1,7 @@
 This is a demo application for locating a country in a world map. It fetches location data from http://www.geonames.org/.
 
+you can view the demo [here](https://aylabyuk.github.io/countries)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

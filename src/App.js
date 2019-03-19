@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import red from '@material-ui/core/colors/red';
 import green from '@material-ui/core/colors/green';
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { Router, Route } from "react-router-dom"
+import createHashHistory from 'history/createHashHistory';
  
 import 'typeface-roboto';
 
@@ -33,12 +34,14 @@ const theme = createMuiTheme({
   },
 });
 
+const hashHistory = createHashHistory({ basename: process.env.PUBLIC_URL });
+
 class App extends Component {
   render() {
     return (
       <MuiThemeProvider theme={theme}>
         <AppContainer.Provider>
-        <Router basename='/countries'>
+        <Router  history={hashHistory}>
           <Layout>
             <Route path="/" exact component={Home} />
             <Route path="/:continent" exact component={Continent} />

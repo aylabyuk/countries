@@ -8,6 +8,7 @@
     "@material-ui/lab": "^3.0.0-alpha.30",
     "constate": "^1.0.0",
     "geonames.js": "^2.1.0",
+    "history": "^4.9.0",
     "leaflet": "^1.4.0",
     "react": "^16.8.4",
     "react-country-flag": "^1.0.2",

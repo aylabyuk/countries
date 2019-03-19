@@ -1,4 +1,4 @@
-This is a demo application for locating a country in a world map. It fetches location data from http://www.geonames.org/.
+This is a simple demo app that uses React and Leaflet to display/locate countries in the world map. It fetches location data from http://www.geonames.org/.
 
 you can view the live demo [here](https://aylabyuk.github.io/countries).
 

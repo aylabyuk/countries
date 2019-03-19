@@ -1,3 +1,7 @@
+This is a simple demo app that uses React and Leaflet to display/locate countries in the world map. It fetches location data from http://www.geonames.org/.
+
+you can view the live demo [here](https://aylabyuk.github.io/countries).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

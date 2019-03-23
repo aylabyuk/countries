@@ -3,7 +3,7 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 
 const Loading = (props) => {
   return (
-    <LinearProgress color="secondary" variant="indeterminate"/>
+    <LinearProgress color="primary" variant="indeterminate"/>
   );
 }
  

@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import CountryList from '../components/CountryList';
 import { graphql, compose } from 'react-apollo';
 import AppContainer from '../appContainer';
+import Loading from '../components/Loading';
 
 import GET_COUNTRIES from '../graphql/queries/GET_COUNTRIES';
 import GET_CONTINENT from '../graphql/queries/GET_CONTINENT';
@@ -17,7 +18,7 @@ const styles = theme => ({
 })
 
 const Continent = ({ classes, location, counts: { loading, countries }, cont: { continent, loadingCont } }) => {
-  if (loading || loadingCont) return <div>loading..</div>
+  if (loading || loadingCont) return <Loading />
 
   const { changeMapPosition } = useContext(AppContainer.Context);
 

@@ -4,12 +4,12 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { Link } from 'react-router-dom';
 import { graphql } from 'react-apollo';
+import Loading from '../components/Loading';
 
 import GET_CONTINENTS from '../graphql/queries/GET_CONTINENTS';
 
 const Home = ({ conts: { loading, continents } }) => {
-  if (loading) return <div>loading..</div>
-
+  if (loading) return <Loading />
   return (
     <List component="nav">
       {

@@ -3,9 +3,9 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import red from '@material-ui/core/colors/red';
 import green from '@material-ui/core/colors/green';
 import { Router, Route } from "react-router-dom"
-import createHashHistory from 'history/createHashHistory';
+import { createHashHistory } from 'history';
 import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from 'react-apollo-hooks';
+import { ApolloProvider } from 'react-apollo';
  
 import 'typeface-roboto';
 

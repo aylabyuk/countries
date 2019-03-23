@@ -17,20 +17,17 @@ const styles = theme => ({
 })
 
 const Continent = ({ classes, location, counts: { loading, countries }, cont: { continent, loadingCont } }) => {
-  const browserPath = location.pathname.split('/');
-  const continentName = location.state ? location.state.continent.name : browserPath[1];
-
   if (loading || loadingCont) return <div>loading..</div>
 
   const { changeMapPosition } = useContext(AppContainer.Context);
 
   useEffect(() => {
     return changeMapPosition(continent);
-  }, [continentName]);
+  }, [continent.name]);
 
   return (
     <>
-      <Typography className={classes.continentName} color="textPrimary">{continentName}</Typography>
+      <Typography className={classes.continentName} color="textPrimary">{continent.name}</Typography>
       <CountryList countries={countries}/>
     </>
   )

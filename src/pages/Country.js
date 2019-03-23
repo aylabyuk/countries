@@ -15,7 +15,6 @@ const styles = theme => ({
 })
 
 const Country = ({ classes, location, cntry: { loading, country } }) => {
-  const countryName = location.state ? location.state.country.countryName : location.pathname.split('/').pop();
   if (loading) return <div>loading..</div>
 
   const { changeMapPosition } = useContext(AppContainer.Context);
@@ -34,7 +33,7 @@ const Country = ({ classes, location, cntry: { loading, country } }) => {
 
   return (
     <>
-      <Typography className={classes.countryName} color="textPrimary">{countryName}</Typography>
+      <Typography className={classes.countryName} color="textPrimary">{country.countryName}</Typography>
     </>
   )
 } 

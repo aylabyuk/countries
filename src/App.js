@@ -4,6 +4,8 @@ import red from '@material-ui/core/colors/red';
 import green from '@material-ui/core/colors/green';
 import { Router, Route } from "react-router-dom"
 import createHashHistory from 'history/createHashHistory';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo-hooks';
  
 import 'typeface-roboto';
 
@@ -36,20 +38,26 @@ const theme = createMuiTheme({
 
 const hashHistory = createHashHistory({ basename: process.env.PUBLIC_URL });
 
+const client = new ApolloClient({
+  uri: 'http://localhost:4000/graphql'
+})
+
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider theme={theme}>
-        <AppContainer.Provider>
-        <Router  history={hashHistory}>
-          <Layout>
-            <Route path="/" exact component={Home} />
-            <Route path="/:continent" exact component={Continent} />
-            <Route path="/:continent/:country" exact component={Country} />
-          </Layout>
-          </Router>
-        </AppContainer.Provider>
-      </MuiThemeProvider>
+      <ApolloProvider client={client}>
+        <MuiThemeProvider theme={theme}>
+          <AppContainer.Provider>
+            <Router  history={hashHistory}>
+              <Layout>
+                <Route path="/" exact component={Home} />
+                <Route path="/:continent" exact component={Continent} />
+                <Route path="/:continent/:country" exact component={Country} />
+              </Layout>
+            </Router>
+          </AppContainer.Provider>
+        </MuiThemeProvider>
+      </ApolloProvider>
     );
   }
 }

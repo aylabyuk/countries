@@ -1,30 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useContext } from 'react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import AppContainer from '../appContainer';
-import geoUtils from '../utils/geonamesUtils';
 import { Link } from 'react-router-dom';
+import { useQuery } from 'react-apollo-hooks';
+
+import GET_CONTINENTS from '../graphql/queries/GET_CONTINENTS';
 
 const Home = () => {
-  const [ continents, setContinents ] = useState([]);
+  const { data, error, loading } = useQuery(GET_CONTINENTS);
 
-  const fetchContinents = async () => {
-    const res = await geoUtils.getContinents();
-    setContinents(res);
-  }
-
-  useEffect(() => {
-    fetchContinents();
-  }, [])
+  if (loading) return <div>loading..</div>
 
   const { changeMapPosition } = useContext(AppContainer.Context);
 
   return (
     <List component="nav">
       {
-        continents.map((cont) => {
+        data.continents.map((cont) => {
           return (
             <Link
               key={cont.name}

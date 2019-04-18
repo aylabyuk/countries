@@ -5,7 +5,10 @@ export default gql`
     countries(continentName: $continentName) {
       continent
       capital
-      languages
+      languages {
+        code
+        name
+      }
       geonameId
       isoAlpha3
       fipsCode
@@ -15,7 +18,10 @@ export default gql`
       countryCode
       countryName
       continentName
-      currencyCode
+      currency {
+        code
+        symbol
+      }
       north
       east
       south

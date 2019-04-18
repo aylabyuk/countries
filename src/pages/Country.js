@@ -45,8 +45,9 @@ const Country = ({ classes, location, cntry: { loading, country } }) => {
       <div className={classes.flagContainer}>
         <ReactCountryFlag
           styleProps={{
-            width: '100px',
-            height: '100px'
+            width: '150px',
+            height: '112.5px',
+            border: '#ababab solid 1px'
           }}
           code={country.countryCode}
           svg

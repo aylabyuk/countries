@@ -13,6 +13,12 @@ const styles = theme => ({
 
 const renderLink = ({ item, index, loc }) => {
   let text = item;
+  
+  // shorten super long names using ellipsis
+  if (text.length > 14) {
+    text = text.replace(/^(.{13}).{2,}/, "$1…");
+  }
+  
   if (index === 0) {
     text = 'Home'
   }

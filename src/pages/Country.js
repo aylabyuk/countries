@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react';
 import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
 import { graphql, compose } from 'react-apollo';
 import { withStyles } from '@material-ui/core/styles';
 import ReactCountryFlag from "react-country-flag";
@@ -13,8 +12,9 @@ const styles = theme => ({
   countryName: {
     padding: theme.spacing.unit * 3,
     paddingTop: 0,
-    fontWeight: 300,
-    fontSize: 45
+    fontWeight: 'initial',
+    fontSize: 20,
+    textAlign: 'center'
   },
   flagContainer: {
     display: 'flex',

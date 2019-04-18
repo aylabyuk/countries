@@ -4,9 +4,10 @@ import { graphql, compose } from 'react-apollo';
 import { withStyles } from '@material-ui/core/styles';
 import ReactCountryFlag from "react-country-flag";
 
-import AppContainer from '../appContainer';
-import Loading from '../components/Loading';
-import GET_COUNTRY from '../graphql/queries/GET_COUNTRY';
+import AppContainer from '../../appContainer';
+import Loading from '../../components/Loading';
+import CountryInfo from './CountryInfo';
+import GET_COUNTRY from '../../graphql/queries/GET_COUNTRY';
 
 const styles = theme => ({
   countryName: {
@@ -38,8 +39,6 @@ const Country = ({ classes, location, cntry: { loading, country } }) => {
     return changeMapPosition({ bbox });
   }, [country]);
 
-  console.log(country)
-
   return (
     <>
       <div className={classes.flagContainer}>
@@ -54,6 +53,7 @@ const Country = ({ classes, location, cntry: { loading, country } }) => {
         />
       </div>
       <Typography className={classes.countryName} color="textPrimary">{country.countryName}</Typography>
+      <CountryInfo { ...country } />
     </>
   )
 } 

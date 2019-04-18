@@ -13,7 +13,7 @@ import AppContainer from './appContainer';
 import Layout from './components/layout';
 import Home from './pages/Home';
 import Continent from './pages/Continent';
-import Country from './pages/Country';
+import Country from './pages/country';
 
 // A theme with custom primary and secondary color.
 const theme = createMuiTheme({

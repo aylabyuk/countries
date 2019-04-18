@@ -3,6 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import { graphql, compose } from 'react-apollo';
 import { withStyles } from '@material-ui/core/styles';
 import ReactCountryFlag from "react-country-flag";
+import Paper from '@material-ui/core/Paper';
 
 import AppContainer from '../../appContainer';
 import Loading from '../../components/Loading';
@@ -20,6 +21,10 @@ const styles = theme => ({
   flagContainer: {
     display: 'flex',
     justifyContent: 'center',
+    paddingTop: 10
+  },
+  cont: {
+    margin: 10
   }
 })
 
@@ -41,18 +46,20 @@ const Country = ({ classes, location, cntry: { loading, country } }) => {
 
   return (
     <>
-      <div className={classes.flagContainer}>
-        <ReactCountryFlag
-          styleProps={{
-            width: '150px',
-            height: '112.5px',
-            border: '#ababab solid 1px'
-          }}
-          code={country.countryCode}
-          svg
-        />
-      </div>
-      <Typography className={classes.countryName} color="textPrimary">{country.countryName}</Typography>
+      <Paper className={classes.cont}>
+        <div className={classes.flagContainer}>
+          <ReactCountryFlag
+            styleProps={{
+              width: '150px',
+              height: '112.5px',
+              border: '#ababab solid 1px'
+            }}
+            code={country.countryCode}
+            svg
+          />
+        </div>
+        <Typography className={classes.countryName} color="textPrimary">{country.countryName}</Typography>
+      </Paper>
       <CountryInfo { ...country } />
     </>
   )

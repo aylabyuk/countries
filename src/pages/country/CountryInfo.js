@@ -69,7 +69,7 @@ const CountryInfo = (props) => {
         <Avatar className={classes.purpleAvatar}>
           <LanguageIcon />
         </Avatar>
-        <ListItemText primary={languages.length + ' Languages'} />
+        <ListItemText primary={languages.length + ' Language/s'} />
         {showLangs ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={showLangs} timeout="auto" unmountOnExit>

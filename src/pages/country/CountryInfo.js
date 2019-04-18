@@ -4,37 +4,56 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import PeopleIcon from '@material-ui/icons/People';
-import WorkIcon from '@material-ui/icons/Work';
 import PlaceIcon from '@material-ui/icons/Place';
+import { withStyles } from '@material-ui/core/styles';
+import green from '@material-ui/core/colors/green';
+import pink from '@material-ui/core/colors/pink';
+import blue from '@material-ui/core/colors/blue';
+import getSymbolFromCurrency from 'currency-symbol-map';
+
+const styles = {
+  greenAvatar: {
+    color: '#fff',
+    backgroundColor: green[500]
+  },
+  pinkAvatar: {
+    color: '#fff',
+    backgroundColor: pink[500]
+  },
+  blueAvatar: {
+    color: '#fff',
+    backgroundColor: blue[500]
+  }
+}
 
 const CountryInfo = (props) => {
 
-  const { capital, currencyCode, population } = props;
+  const { capital, currencyCode, population, classes} = props;
 
   console.log(props)
 
   return (
     <List>
       <ListItem>
-        <Avatar>
+        <Avatar className={classes.greenAvatar}>
           <PlaceIcon />
         </Avatar>
-        <ListItemText primary="Capital" secondary={capital} />
+        <ListItemText secondary="Capital" primary={capital} />
       </ListItem>
       <ListItem>
-        <Avatar>
-          <WorkIcon />
+        <Avatar className={classes.pinkAvatar}>
+          { getSymbolFromCurrency(currencyCode) }
         </Avatar>
-        <ListItemText primary="Currency" secondary={currencyCode} />
+        <ListItemText secondary="Currency" primary={currencyCode} />
       </ListItem>
       <ListItem>
-        <Avatar>
+        <Avatar className={classes.blueAvatar}>
           <PeopleIcon />
         </Avatar>
-        <ListItemText primary="Population" secondary={population} />
+        <ListItemText secondary="Population" primary={population} />
       </ListItem>
     </List>
   );
 }
  
-export default CountryInfo;
+export default withStyles(styles)(CountryInfo);

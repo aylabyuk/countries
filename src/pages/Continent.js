@@ -12,8 +12,9 @@ import GET_CONTINENT from '../graphql/queries/GET_CONTINENT';
 const styles = theme => ({
   continentName: {
     padding: theme.spacing.unit * 3,
-    fontWeight: 300,
-    fontSize: 45
+    fontWeight: 'initial',
+    fontSize: 50,
+    textAlign: 'center'
   }
 })
 

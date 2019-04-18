@@ -38,6 +38,7 @@ const Country = ({ classes, location, cntry: { loading, country } }) => {
     return changeMapPosition({ bbox });
   }, [country]);
 
+  console.log(country)
 
   return (
     <>

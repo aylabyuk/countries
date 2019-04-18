@@ -12,14 +12,13 @@ import GET_COUNTRY from '../graphql/queries/GET_COUNTRY';
 const styles = theme => ({
   countryName: {
     padding: theme.spacing.unit * 3,
+    paddingTop: 0,
     fontWeight: 300,
     fontSize: 45
   },
   flagContainer: {
     display: 'flex',
     justifyContent: 'center',
-    margin: '10px auto 10px auto',
-    padding: '0px 10px 0px 10px'
   }
 })
 
@@ -42,7 +41,7 @@ const Country = ({ classes, location, cntry: { loading, country } }) => {
 
   return (
     <>
-      <Paper className={classes.flagContainer}>
+      <div className={classes.flagContainer}>
         <ReactCountryFlag
           styleProps={{
             width: '100px',
@@ -51,7 +50,7 @@ const Country = ({ classes, location, cntry: { loading, country } }) => {
           code={country.countryCode}
           svg
         />
-      </Paper>
+      </div>
       <Typography className={classes.countryName} color="textPrimary">{country.countryName}</Typography>
     </>
   )
